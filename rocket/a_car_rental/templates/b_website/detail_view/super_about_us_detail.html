@@ -1,0 +1,20 @@
+{% extends 'website/base_site_1.html' %} {% load crispy_forms_tags %} {% block title %} id: {{ object.id }} About us {% endblock title %} {% block left_main %}
+<div>
+    <div class='header'>
+        <h1 style="font-size: 30px">id: {{ object.id }} About us</h1>
+    </div>
+    <hr />
+    <ul style="font-size: 20px">
+        <li>id: {{ object.id }} About us.
+            <p><strong>Title:</strong> {{ object.title }}</p>
+            <p><strong>Date created:</strong> {{ object.date_created }}</p>
+<!--            <p><strong>Image:</strong> {{ object.image }}</p>-->
+            <p><strong>Description:</strong> {{ object.description }}</p>
+        </li>
+    </ul>
+    <hr />
+</div>
+{% endblock left_main %} {% block right_main %}
+<div class="left_nav">
+    <a class="active" href="/attach/about_us/list/">Go back</a>
+</div>{% endblock right_main %}

@@ -1,0 +1,8 @@
+asgiref
+bootstrap4
+Django
+django-crispy-forms
+pytz
+sqlparse
+mysqlclient
+Pillow

@@ -1,0 +1,11 @@
+{% extends 'website/base_site_1.html' %} {% load crispy_forms_tags %} {% block title %} Editing "id: {{ object.id }} Car" {% endblock title %} {% block left_main %}
+<form method="post" style="font-size: 20px">
+    <div class='header'>
+        <p style="font-size: 30px">id: {{ object.id }} Car</p>
+    </div>
+    <hr /> {% csrf_token %} {{ form.as_p }}
+    <input type="submit" value="Save">
+</form> {% endblock left_main %} {% block right_main %}
+<div class="left_nav">
+    <a class="active" href="/attach/car/list/">Go back</a>
+</div>{% endblock right_main %}

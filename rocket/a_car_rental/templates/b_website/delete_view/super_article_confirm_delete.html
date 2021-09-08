@@ -1,0 +1,16 @@
+{% extends 'website/base_site_1.html' %} {% load crispy_forms_tags %} {% block title %} Deleting "id: {{ object.id }} Article" {% endblock title %} {% block left_main %}
+<form method="post"> {% csrf_token %}
+    <div class='header'>
+        <p style="font-size: 30px">Are you sure you want to delete "id: {{ object.id }} Article"?</p>
+    </div>
+    <hr />
+    <h1>id: {{ object.id }} Article</h1>
+    <p><strong>Title:</strong> {{ object.title }}</p>
+    <p><strong>Date created:</strong> {{ object.date_created }}</p>
+<!--    <p><strong>Image:</strong> {{ object.photo }}</p>-->
+    <p><strong>Description:</strong> {{ object.description }}</p>
+    <input type="submit" value="Delete">
+</form>{% endblock left_main %} {% block right_main %}
+<div class="left_nav">
+    <a class="active" href="/attach/article/list/">Go back</a>
+</div>{% endblock right_main %}

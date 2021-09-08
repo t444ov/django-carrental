@@ -1,0 +1,26 @@
+{% extends 'website/base_site_1_user.html' %} {% load crispy_forms_tags %} {% block title %} About us {% endblock title %} {% block left_main %}
+<div>
+    <div class='header'>
+        <!-- <p style="font-size: 30px">🏎🏎🏎 Welcome to car rental site 🏎🏎🏎</p> -->
+        <p style="font-size: 30px">About us</p>
+    </div>
+    <hr />
+    <ul style="font-size: 20px">
+        <!-- Iterate over object_list -->
+        {% for object in object_list %}
+        <!-- Display Objects -->
+        <li>
+            <!-- <a href="/overview/article/{{ object.id }}/detail/" style="color: green"><strong>{{ object.title }}</strong></a> -->
+            <p>id: {{ object.id }}. {{ object.date_created }}</p>
+            <!--            <p>{{ object.date_created }}</p>-->
+            <p>{{ object.photo }}</p>
+            <p>{{ object.description }}</p>
+        </li>
+        <hr />
+        <!-- If objet_list is empty  -->
+        {% empty %}
+        <li>No about us yet.</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock left_main %}

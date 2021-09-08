@@ -1,0 +1,12 @@
+{% extends 'registration/base_auth.html' %} {% load crispy_forms_tags %} {% block main %}
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">You are logged out!</h4>
+        <form method="post">
+            {% csrf_token %} {{ form|crispy }}
+            <button type="submit" class="btn btn-primary btn-block">Log in</button>
+            <a href='/account/login/'>Log in again</a>
+        </form>
+    </div>
+</div>
+{% endblock %}

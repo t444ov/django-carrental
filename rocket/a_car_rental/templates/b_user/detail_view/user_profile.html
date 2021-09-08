@@ -1,0 +1,37 @@
+{% extends 'website/base_site_1.html' %} {% load crispy_forms_tags %} {% block title %} id: {{ user.id }} User {% endblock title %} {% block left_main %}
+<div>
+    <div class='header'>
+        <h1 style="font-size: 30px">Welcome, {{ user.first_name }}!</h1>
+        <!-- <h1 style="font-size: 30px">id: {{ user.id }} User</h1> -->
+    </div>
+    <hr />
+    <ul style="font-size: 20px">
+        <li>id: {{ user.id }} User.
+            <a href="/attach/user/{{ user.id }}/update/" style="color: orange">Edit</a> | <a href="/attach/user/{{ user.id }}/delete/" style="color: red">Delete</a> | <a href="/attach/user/{{ user.id }}/detail/" style="color: green">Detail</a>
+            <p><strong>Username:</strong> {{ user.username }}</p>
+            <p><strong>Email:</strong> {{ user.email }}</p>
+            <!-- <p><strong>Password:</strong> {{ user.password }}</p> -->
+            <!-- <p><strong>Last login:</strong> {{ user.last_login }}</p> -->
+            <!-- <p><strong>Is superuser:</strong> {{ user.is_superuser }}</p> -->
+            <!-- <p><strong>Is staff:</strong> {{ user.is_staff }}</p> -->
+            <!-- <p><strong>Is active:</strong> {{ user.is_active }}</p> -->
+            <!-- <p><strong>Date joined:</strong> {{ user.date_joined }}</p> -->
+            <p><strong>Last name:</strong> {{ user.last_name }}</p>
+            <p><strong>First name:</strong> {{ user.first_name }}</p>
+            <p><strong>Patronymic:</strong> {{ user.patronymic }}</p>
+            <p><strong>Gender:</strong> {{ user.gender }}</p>
+            <p><strong>Birth date:</strong> {{ user.date_of_birth }}</p>
+            <p><strong>Phone number:</strong> {{ user.phone_number }}</p>
+            <!-- <p><strong>Document:</strong> <img src="{{ object.document_1.url }}" alt="1 slide"></p> -->
+            <!-- <p><strong>Document:</strong> <img src="{{ object.document_2.url }}" alt="2 slide"></p> -->
+        </li>
+    </ul>
+    <hr />
+</div>
+{% endblock left_main %} {% block right_main %}
+<div class="left_nav">
+    <!-- <a class="active" href="/attach/user/list/">Go back</a> -->
+    <a class="active" style="color: orange" href="/attach/user/{{ user.id }}/update/">Edit</a>
+    <a class="" style="color: red" href="/attach/user/{{ user.id }}/delete/">Delete</a>
+    <a class="" style="color: green" href="/attach/user/{{ user.id }}/detail/">Detail</a>
+</div>{% endblock right_main %}

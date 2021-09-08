@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial;
+            padding: 10px;
+            background: #f1f1f1;
+        }
+        
+        .header {
+            padding: 30px;
+            text-align: center;
+            background: white;
+        }
+        
+        .header h1 {
+            font-size: 50px;
+        }
+        
+        .navbar {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: auto;
+            background-color: #1a1a1a;
+            position: sticky;
+            top: 0;
+        }
+        
+        a,
+        .dropbtn {
+            display: inline-block;
+            color: #e6e6e6;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        
+        a:hover,
+        .dropdown:hover .dropbtn {
+            background-color: #e6e6e6;
+            color: #1a1a1a;
+        }
+        
+        .dropdown {
+            display: inline-block;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #e6e6e6;
+            min-width: 160px;
+            box-shadow: #1a1a1a;
+            z-index: 1;
+        }
+        
+        .dropdown-content a {
+            background-color: #f3f3f3;
+            color: #1a1a1a;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: #e6e6e6;
+            color: #1a1a1a;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+            position: sticky;
+            top: 0;
+        }
+        
+        .leftcolumn {
+            float: left;
+            width: 75%;
+        }
+        /* Right column */
+        
+        .rightcolumn {
+            float: left;
+            width: 25%;
+            background-color: #f1f1f1;
+            padding-left: 20px;
+        }
+        /* Fake image */
+        
+        .fakeimg {
+            background-color: #aaa;
+            width: 100%;
+            padding: 20px;
+        }
+        /* Add a card effect for articles */
+        
+        .card {
+            background-color: white;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        /* Clear floats after the columns */
+        
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        /* Footer */
+        
+        .footer {
+            padding: 20px;
+            text-align: center;
+            background: #1a1a1a;
+            margin-top: 20px;
+            color: #e6e6e6;
+        }
+        /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+        
+        @media screen and (max-width: 800px) {
+            .leftcolumn,
+            .rightcolumn {
+                width: 100%;
+                padding: 0;
+            }
+        }
+        /* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+        
+        @media screen and (max-width: 400px) {
+            .topnav a {
+                float: none;
+                width: 100%;
+            }
+        }
+        
+        .active {
+            background-color: #4CAF50;
+        }
+        
+        .left_nav a {
+            display: block;
+            color: #000;
+            padding: 8px 16px;
+            text-decoration: none;
+        }
+        
+        .left_nav a.activ {
+            background-color: #4CAF50;
+            color: white;
+        }
+        
+        .left_nav a:hover:not(.activ) {
+            background-color: #555;
+            color: white;
+        }
+        
+        .card:hover .left_nav {
+            display: block;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} {% endblock title %} | CAR Rental</title>
+</head>
+
+<body>
+    <div class="header">
+        <h1><a href="">CAR Rental</a></h1>
+        <p>8-800-44-44-888</p>
+        <div class="content pickupShedule">
+            <span class="sheduleTime" style="color:green;">
+                Mon-Sun: 00:00 – 23:59
+            </span>
+        </div>
+    </div>
+    <div class="navbar">
+        <a href="/attach/article/list/" style="float:left" rel="nofollow">Article</a>
+        <a href="/attach/about_us/list/" style="float:left" rel="nofollow">About us</a>
+        <a href="/attach/user/list/" style="float:left" rel="nofollow">Users</a>
+        <a href="/attach/car/list/" style="float:left" rel="nofollow">Cars</a>
+        <a href="/attach/rent_car/list/" style="float:left" rel="nofollow">Rent cars</a>
+        <a href="/attach/account/logout/" style="float:right">Log out</a>
+        <a href="/attach/profile/" style="float:right">Profile</a>
+    </div>
+    <div class="row">
+        <div class="leftcolumn">
+            <div class="card">
+                {% block left_main %} {% endblock left_main %}
+            </div>
+        </div>
+        <div class="rightcolumn">
+            <div class="card">
+                {% block right_main %} {% endblock right_main %}
+            </div>
+        </div>
+    </div>
+
+    <div class="footer navbar">
+        <p>Contacts for communication: support@carrental.com</p>
+        <p>Copyright © carrental.com, 2015-2021. All rights reserved.</p>
+    </div>
+
+</body>
+
+</html>

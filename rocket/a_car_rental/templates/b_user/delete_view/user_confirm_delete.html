@@ -1,0 +1,27 @@
+{% extends 'website/base_site_1.html' %} {% load crispy_forms_tags %} {% block title %} Deleting user {% endblock title %} {% block left_main %}
+<form method="post"> {% csrf_token %}
+    <div class='header'>
+        <p style="font-size: 30px">Are you sure you want to delete "id: {{ object.id }} User"?</p>
+    </div>
+    <hr />
+    <h1>id: {{ object.id }} User</h1>
+    <p><strong>Email:</strong> {{ object.email }}</p>
+    <p><strong>Password:</strong> {{ object.password }}</p>
+    <p><strong>Last login:</strong> {{ object.last_login }}</p>
+    <p><strong>Is superuser:</strong> {{ object.is_superuser }}</p>
+    <p><strong>Is staff:</strong> {{ object.is_staff }}</p>
+    <p><strong>Is active:</strong> {{ object.is_active }}</p>
+    <p><strong>Date joined:</strong> {{ object.date_joined }}</p>
+    <p><strong>Last name:</strong> {{ object.last_name }}</p>
+    <p><strong>First name:</strong> {{ object.first_name }}</p>
+    <p><strong>Patronymic:</strong> {{ object.patronymic }}</p>
+    <p><strong>Gender:</strong> {{ object.gender }}</p>
+    <p><strong>Birth date:</strong> {{ object.date_of_birth }}</p>
+    <p><strong>Phone number:</strong> {{ object.phone_number }}</p>
+    <!-- <p><strong>Document:</strong> <img src="{{ object.document_1.url }}" alt="1 slide"></p> -->
+    <!-- <p><strong>Document:</strong> <img src="{{ object.document_2.url }}" alt="2 slide"></p> -->
+    <input type="submit" value="Delete">
+</form>{% endblock left_main %} {% block right_main %}
+<div class="left_nav">
+    <a class="active" href="/attach/user/list/">Go back</a>
+</div>{% endblock right_main %}

@@ -1,0 +1,33 @@
+{% extends 'website/base_site_1.html' %} {% load crispy_forms_tags %} {% block title %} id: {{ object.id }} Car {% endblock title %} {% block left_main %}
+<div>
+    <div class='header'>
+        <h1 style="font-size: 30px">id: {{ object.id }} Car</h1>
+    </div>
+    <hr />
+    <ul style="font-size: 20px">
+        <li>id: {{ object.id }} Car.
+            <p><strong>Brand:</strong> {{ object.brand }}</p>
+            <p><strong>Model:</strong> {{ object.model }}</p>
+            <p><strong>Body type:</strong> {{ object.body_type }}</p>
+            <p><strong>Year of issue:</strong> {{ object.year_of_issue }}</p>
+            <p><strong>Color:</strong> {{ object.color }}</p>
+            <p><strong>Engine volume:</strong> {{ object.engine_volume }}</p>
+            <p><strong>Power:</strong> {{ object.power }}</p>
+            <p><strong>Fuel type:</strong> {{ object.fuel_type }}</p>
+            <p><strong>Transmission type:</strong> {{ object.transmission_type }}</p>
+            <p><strong>Car drive type:</strong> {{ object.car_drive_type }}</p>
+            <p><strong>License plate:</strong> {{ object.license_plate }}</p>
+            <p><strong>Number of seats:</strong> {{ object.number_of_seats }}</p>
+            <p><strong>Car description:</strong> {{ object.description }}</p>
+            <p><strong>Car published by:</strong> {{ object.published_by }}</p>
+            <p><strong>Car publishing date:</strong> {{ object.publishing_date }}</p>
+            <p><strong>Car status:</strong> {{ object.car_status }}</p>
+            <p><strong>Car rental price:</strong> {{ object.price }}</p>
+        </li>
+    </ul>
+    <hr />
+</div>
+{% endblock left_main %} {% block right_main %}
+<div class="left_nav">
+    <a class="active" href="/attach/car/list/">Go back</a>
+</div>{% endblock right_main %}

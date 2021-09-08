@@ -1,0 +1,19 @@
+{% extends 'website/base_site.html' %} {% load crispy_forms_tags %} {% block title %} Article {% endblock title %} {% block left_main %}
+<div>
+    <div class='header'>
+        <h1 style="font-size: 30px"><strong>{{ object.title }}</strong></h1>
+        <p>id: {{ object.id }}. {{ object.date_created }}</p>
+    </div>
+    <hr />
+    <ul style="font-size: 20px">
+        <!--        <li>-->
+        <p>{{ object.photo }}</p>
+        <p>{{ object.description }}</p>
+        <!--        </li>-->
+    </ul>
+    <hr />
+    <div class="left_nav">
+        <a class="" href="/">Go back</a>
+    </div>
+</div>
+{% endblock left_main %}

@@ -1,0 +1,23 @@
+{% extends 'website/base_site_1.html' %} {% load crispy_forms_tags %} {% block title %} Deleting "id: {{ object.id }} Rent car" {% endblock title %} {% block left_main %}
+<form method="post"> {% csrf_token %}
+    <div class='header'>
+        <p style="font-size: 30px">Are you sure you want to delete "id: {{ object.id }} Rent car"?</p>
+    </div>
+    <hr />
+    <h1>id: {{ object.id }} Rent car</h1>
+    <p><strong>Client:</strong> {{ object.client }}</p>
+    <p><strong>Car:</strong> {{ object.car }}</p>
+    <p><strong>Booking date:</strong> {{ object.booking_date }}</p>
+    <p><strong>Date of issue:</strong> {{ object.date_of_issue }}</p>
+    <p><strong>Planned return date:</strong> {{ object.planned_return_date }}</p>
+    <p><strong>Total days:</strong> {{ object.total_days }}</p>
+    <p><strong>Is bill paid:</strong> {{ object.is_bill_paid }}</p>
+    <p><strong>Return date:</strong> {{ object.return_date }}</p>
+    <p><strong>Total payment amount:</strong> {{ object.total_payment_amount }}</p>
+    <p><strong>Request responded by:</strong> {{ object.request_responded_by }}</p>
+    <p><strong>Request status:</strong> {{ object.request_status }}</p>
+    <input type="submit" value="Delete">
+</form>{% endblock left_main %} {% block right_main %}
+<div class="left_nav">
+    <a class="active" href="/attach/rent_car/list/">Go back</a>
+</div>{% endblock right_main %}

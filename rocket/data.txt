@@ -1,0 +1,59 @@
+--
+--Car body type
+--
+Convertible
+Coupe
+SUV
+Sedan
+Truck
+Van
+Wagon
+Hatchback
+Hybrid
+Electric
+
+
+--
+--Car drive type
+--
+FWD
+RWD
+AWD
+4WD
+
+
+--
+--Car state
+--
+NEW
+Excellent
+Good
+Satisfactory
+Bad
+
+
+--
+--Car transmission type
+--
+Automatic
+Manual
+Automated Manual
+Continuously Variable
+
+
+--
+--Fuel type
+--
+Gasoline
+Diesel
+Electricity
+
+
+--
+--Gender human
+--
+Male
+Female
+Other
+
+

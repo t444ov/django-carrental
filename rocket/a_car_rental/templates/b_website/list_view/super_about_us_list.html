@@ -1,0 +1,26 @@
+{% extends 'website/base_site_1.html' %} {% load crispy_forms_tags %} {% block title %} About us {% endblock title %} {% block left_main %}
+<div>
+    <div class='header'>
+        <p style="font-size: 30px">About us</p>
+        <a href="/attach/about_us/create/" class='active'>Add new one</a>
+    </div>
+    <hr />
+    <ul style="font-size: 20px">
+        <!-- Iterate over object_list -->
+        {% for object in object_list %}
+        <!-- Display Objects -->
+        <li>id: {{ object.id }} About us.
+            <a href="/attach/about_us/{{ object.id }}/update/" style="color: orange">Edit</a> | <a href="/attach/about_us/{{ object.id }}/delete/" style="color: red">Delete</a> | <a href="/attach/about_us/{{ object.id }}/detail/" style="color: green">Detail</a>
+            <p><strong>Title:</strong> {{ object.title }}</p>
+            <p><strong>Date created:</strong> {{ object.date_created }}</p>
+<!--            <p><strong>Image:</strong> {{ object.image }}</p>-->
+            <p><strong>Description:</strong> {{ object.description }}</p>
+        </li>
+        <hr />
+        <!-- If objet_list is empty  -->
+        {% empty %}
+        <li>No articles yet.</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock left_main %} {% block right_main %} {% endblock right_main %}

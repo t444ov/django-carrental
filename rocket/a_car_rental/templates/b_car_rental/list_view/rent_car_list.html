@@ -1,0 +1,33 @@
+{% extends 'website/base_site_1_user.html' %} {% load crispy_forms_tags %} {% block title %} Rent cars {% endblock title %} {% block left_main %}
+<div>
+    <div class='header'>
+        <p style="font-size: 30px">Rent cars</p>
+<!--        <a href="/overview/rent_car/create/" class='active'>Add new one</a>-->
+    </div>
+    <hr />
+    <ul style="font-size: 20px">
+        <!-- Iterate over object_list -->
+        {% for object in rent_cars %}
+        <!-- Display Objects -->
+        <li>id: {{ object.id }} Rent car.
+<!--            <a href="/overview/rent_car/{{ object.id }}/update/" style="color: orange">Edit</a> | <a href="/overview/rent_car/{{ object.id }}/delete/" style="color: red">Delete</a> | <a href="/overview/rent_car/{{ object.id }}/detail/" style="color: green">Detail</a>-->
+            <p><strong>Client:</strong> {{ object.client }}</p>
+            <p><strong>Car:</strong> {{ object.car }}</p>
+            <p><strong>Booking date:</strong> {{ object.booking_date }}</p>
+            <p><strong>Date of issue:</strong> {{ object.date_of_issue }}</p>
+            <p><strong>Planned return date:</strong> {{ object.planned_return_date }}</p>
+            <p><strong>Total days:</strong> {{ object.total_days }}</p>
+            <p><strong>Is bill paid:</strong> {{ object.is_bill_paid }}</p>
+            <p><strong>Return date:</strong> {{ object.return_date }}</p>
+            <p><strong>Total payment amount:</strong> {{ object.total_payment_amount }}</p>
+            <p><strong>Request responded by:</strong> {{ object.request_responded_by }}</p>
+            <p><strong>Request status:</strong> {{ object.request_status }}</p>
+        </li>
+        <hr />
+        <!-- If objet_list is empty  -->
+        {% empty %}
+        <li>No rent cars yet.</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock left_main %} {% block right_main %} {% endblock right_main %}

@@ -1,0 +1,36 @@
+{% extends 'website/base_site_1.html' %} {% load static %} {% load crispy_forms_tags %} {% block title %} Users {% endblock title %} {% block left_main %}
+<div>
+    <div class='header'>
+        <p style="font-size: 30px">Users</p>
+<!--        <a href="/attach/user/create" class='active'>Add new one</a>-->
+    </div>
+    <hr />
+    <ul style="font-size: 20px">
+        <!-- Iterate over object_list -->
+        {% for object in object_list %}
+        <!-- Display Objects -->
+        <li>id: {{ object.id }} User.
+            <a href="/attach/user/{{ object.id }}/update/" style="color: orange">Edit</a> | <a href="/attach/user/{{ object.id }}/delete/" style="color: red">Delete</a> | <a href="/attach/user/{{ object.id }}/detail/" style="color: green">Detail</a>
+            <p><strong>Username:</strong> {{ user.username }}</p>
+            <p><strong>Email:</strong> {{ object.email }}</p>
+            <p><strong>Password:</strong> {{ object.password }}</p>
+            <p><strong>Last login:</strong> {{ object.last_login }}</p>
+            <p><strong>Is superuser:</strong> {{ object.is_superuser }}</p>
+            <p><strong>Is staff:</strong> {{ object.is_staff }}</p>
+            <p><strong>Is active:</strong> {{ object.is_active }}</p>
+            <p><strong>Date joined:</strong> {{ object.date_joined }}</p>
+            <p><strong>Last name:</strong> {{ object.last_name }}</p>
+            <p><strong>First name:</strong> {{ object.first_name }}</p>
+            <p><strong>Patronymic:</strong> {{ object.patronymic }}</p>
+            <p><strong>Gender:</strong> {{ object.gender }}</p>
+            <p><strong>Birth date:</strong> {{ object.date_of_birth }}</p>
+            <p><strong>Phone number:</strong> {{ object.phone_number }}</p>
+        </li>
+        <hr />
+        <!-- If objet_list is empty  -->
+        {% empty %}
+        <li>No users yet.</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock left_main %} {% block right_main %} {% endblock right_main %}

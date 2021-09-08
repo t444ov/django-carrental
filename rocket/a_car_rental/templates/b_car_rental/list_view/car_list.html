@@ -1,0 +1,39 @@
+{% extends 'website/base_site_1_user.html' %} {% load crispy_forms_tags %} {% block title %} Cars {% endblock title %} {% block left_main %}
+<div>
+    <div class='header'>
+        <p style="font-size: 30px">Cars</p>
+        <!-- <a href="/overview/car/create/" class='active'>Add new one</a> -->
+    </div>
+    <hr />
+    <ul style="font-size: 20px">
+        <!-- Iterate over object_list -->
+        {% for object in object_list %}
+        <!-- Display Objects -->
+        <li>id: {{ object.id }} Car.
+            <a href="/overview/car/{{ object.id }}/detail/" style="color: green">Detail</a> | <a href="/overview/car/{{ object.id }}/rent/" style="color: gray">Rent</a>
+            <p><strong>Brand:</strong> {{ object.brand }}</p>
+            <p><strong>Model:</strong> {{ object.model }}</p>
+            <p><strong>Body type:</strong> {{ object.body_type }}</p>
+            <p><strong>Year of issue:</strong> {{ object.year_of_issue }}</p>
+            <p><strong>Color:</strong> {{ object.color }}</p>
+            <p><strong>Engine volume:</strong> {{ object.engine_volume }}</p>
+            <p><strong>Power:</strong> {{ object.power }}</p>
+            <p><strong>Fuel type:</strong> {{ object.fuel_type }}</p>
+            <p><strong>Transmission type:</strong> {{ object.transmission_type }}</p>
+            <p><strong>Car drive type:</strong> {{ object.car_drive_type }}</p>
+            <p><strong>License plate:</strong> {{ object.license_plate }}</p>
+            <p><strong>Number of seats:</strong> {{ object.number_of_seats }}</p>
+            <p><strong>Car description:</strong> {{ object.description }}</p>
+<!--            <p><strong>Car published by:</strong> {{ object.published_by }}</p>-->
+<!--            <p><strong>Car publishing date:</strong> {{ object.publishing_date }}</p>-->
+<!--            <p><strong>Car status:</strong> {{ object.car_status }}</p>-->
+            <p><strong>Car rental price:</strong> {{ object.price }}</p>
+        </li>
+        <hr />
+        <!-- If objet_list is empty  -->
+        {% empty %}
+        <li>No cars yet.</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock left_main %} {% block right_main %} {% endblock right_main %}

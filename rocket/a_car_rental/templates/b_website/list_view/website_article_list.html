@@ -1,0 +1,25 @@
+{% extends 'website/base_site.html' %} {% load crispy_forms_tags %} {% block title %} Articles {% endblock title %} {% block left_main %}
+<div>
+    <div class='header'>
+        <p style="font-size: 30px">🏎🏎🏎 Welcome to car rental site 🏎🏎🏎</p>
+    </div>
+    <hr />
+    <ul style="font-size: 20px">
+        <!-- Iterate over object_list -->
+        {% for object in object_list %}
+        <!-- Display Objects -->
+        <li>
+            <a href="/article/{{ object.id }}/detail/" style="color: green"><strong>{{ object.title }}</strong></a>
+            <p>id: {{ object.id }}. {{ object.date_created }}</p>
+            <!--            <p>{{ object.date_created }}</p>-->
+            <p>{{ object.photo }}</p>
+            <p>{{ object.description }}</p>
+        </li>
+        <hr />
+        <!-- If objet_list is empty  -->
+        {% empty %}
+        <li>No articles yet.</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock left_main %}
