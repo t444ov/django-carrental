@@ -139,36 +139,6 @@ def profile_user(request):
     return render(request, 'b_user/detail_view/user_profile_overview.html', args)
 
 
-def login_user(self, request, *args, **kwargs):
-    form = LoginUserForm(request.POST or None)
-    if form.is_valid():
-        username = request.GET.get('username', '') 
-        password = request.GET.get('password', '') 
-
-        user = authenticate(request, username=username, password=password)
-
-        if user is not None:
-            login(request, user)
-            return HttpResponseRedirect('/attach/car/list/')
-        return render(request, 'registration/login.html', {'form': form})
-
-
-def login_super_user(request):
-    # global isLogin
-    email = request.POST.get('email', '')
-    password = request.POST.get('password', '')
-
-    result_user = User.objects.filter(email=email, password=password)
-
-    if result_user.exists():
-        request.session['user_email'] = email
-        # isLogin = True
-        return redirect('/attach/car/list/')
-    else:
-        message = "Invalid Email or password!!"
-        return render(request, 'registration/login.html', {'message': message})
-
-
 def logout_user(request):
     logout(request)
     return redirect('/')
